@@ -14,7 +14,7 @@ import reactLogo from '../assets/techs/React.png';
 import angularLogo from '../assets/techs/Angular.png';
 import laravelLogo from '../assets/techs/Laravel.png';
 import pythonLogo from '../assets/techs/Python.png';
-import netcore from "../assets/techs/Netcore.png";
+import Netcore from "../assets/techs/Netcore.png";
 import csharpLogo from '../assets/techs/Csharp.png';
 
 const MainContent = ({ isDarkMode, isTransitioning }) => {
@@ -31,7 +31,7 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
         { name: 'Angular', image: angularLogo },
         { name: 'Laravel', image: laravelLogo },
         { name: 'Python', image: pythonLogo },
-        { name: '.Net', image: netcore },
+        { name: '.Net', image: Netcore },
         { name: 'C#', image: csharpLogo },
         // ... add other tech stack items
     ];
@@ -41,7 +41,7 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
             const currentPosition = window.scrollY;
             const isScrollUp = currentPosition < lastScrollPosition;
             setIsScrollingUp(isScrollUp);
-            setLastScrollPosition(currentPosition); 
+            setLastScrollPosition(currentPosition);
 
             // If we're in the tech animation phase, prevent natural scrolling
             if (isAnimatingTech && !allTechDisplayed && !isScrollUp) {
@@ -199,11 +199,11 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-wrap gap-4 mb-12">
-                    <button 
+                    <button
                         onClick={() => setIsModalOpen(true)}
                         className={`flex items-center gap-2 px-6 py-3 rounded-lg transition-all duration-500 ease-in-out
-                            ${isDarkMode 
-                                ? 'bg-[#2f2f2f] hover:bg-[#3a3a3a] text-white' 
+                            ${isDarkMode
+                                ? 'bg-[#2f2f2f] hover:bg-[#3a3a3a] text-white'
                                 : 'bg-gray-200 hover:bg-gray-300 text-gray-900'
                             }`}
                     >
@@ -214,8 +214,8 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
                     <Link
                         to="/contact"
                         className={`flex items-center gap-2 px-6 py-3 rounded-lg transition duration-200
-                            ${isDarkMode 
-                                ? 'bg-[#2f2f2f] hover:bg-[#3a3a3a] text-white' 
+                            ${isDarkMode
+                                ? 'bg-[#2f2f2f] hover:bg-[#3a3a3a] text-white'
                                 : 'bg-gray-200 hover:bg-gray-300 text-gray-900'
                             }`}
                         onMouseEnter={() => setHover(true)}
@@ -229,7 +229,7 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
 
             {/* Featured Work Image */}
             <div className="relative w-full mb-10">
-                <div 
+                <div
                     className="mt-10 rounded-xl overflow-hidden transition-transform duration-300 ease-out absolute w-full"
                     style={{ transform: `translateX(${translateX}px)` }}
                 >
@@ -242,9 +242,8 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
             </div>
 
             {/* Tech Stack Section */}
-            <div className={`mt-20 transition-all duration-500 ${
-                techSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}>
+            <div className={`mt-20 transition-all duration-500 ${techSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}>
                 <h2 className={`text-3xl font-bold 
                     ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
                 >
@@ -254,8 +253,8 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
                     <div className="flex flex-col gap-12">
                         {techStack.map((tech, index) => {
                             const shouldShow = scrollPosition > 300 + (index * 50) && scrollPosition < 600;
-                            const translateY = shouldShow 
-                                ? Math.min((scrollPosition - (300 + index * 50)) * 0.5, 50) 
+                            const translateY = shouldShow
+                                ? Math.min((scrollPosition - (300 + index * 50)) * 0.5, 50)
                                 : 100;
 
                             return (
@@ -288,7 +287,7 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
             <div className="h-10"></div>
 
             {/* Add the modal */}
-            <BookCallModal 
+            <BookCallModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 isDarkMode={isDarkMode}
