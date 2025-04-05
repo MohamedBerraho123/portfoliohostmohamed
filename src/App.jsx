@@ -39,7 +39,7 @@ function App() {
 
   return (
     <Router>
-      <div className={`min-h-screen flex flex-col transition-colors duration-500 ease-in-out
+      <div className={`min-h-screen flex transition-colors duration-500 ease-in-out
         ${isDarkMode ? 'dark bg-[#191919]' : 'bg-gray-50'}`}
       >
         {/* Mobile Menu Button */}
@@ -56,7 +56,7 @@ function App() {
         </button>
 
         {/* Main Content */}
-        <main className="flex-1 relative">
+        <main className="flex-1 min-h-screen">
           <Routes>
             <Route path="/" element={<MainContent isDarkMode={isDarkMode} isTransitioning={isTransitioning} />} />
             <Route path="/projects" element={<Projects isDarkMode={isDarkMode} isTransitioning={isTransitioning} />} />
@@ -70,7 +70,7 @@ function App() {
         </main>
 
         {/* Sidebar */}
-        <div className={`fixed top-0 right-0 h-full lg:w-72 transition-all duration-300 ease-in-out z-40
+        <aside className={`fixed top-0 right-0 h-screen lg:w-72 transition-all duration-300 ease-in-out z-40
           ${isMobileMenuOpen ? 'w-64 translate-x-0' : 'w-0 translate-x-full lg:w-72 lg:translate-x-0'}`}
         >
           <Sidebar
@@ -80,7 +80,7 @@ function App() {
             isMobileMenuOpen={isMobileMenuOpen}
             toggleMobileMenu={toggleMobileMenu}
           />
-        </div>
+        </aside>
 
         {/* Overlay for mobile menu */}
         {isMobileMenuOpen && (

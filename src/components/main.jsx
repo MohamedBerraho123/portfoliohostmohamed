@@ -142,13 +142,13 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
     };
 
     return (
-        <div className={`min-h-screen w-full lg:pr-72 transition-colors duration-500 ease-in-out
+        <div className={`min-h-screen w-full transition-colors duration-500 ease-in-out overflow-x-hidden
             ${isDarkMode ? 'bg-[#191919] text-white' : 'bg-gray-50 text-gray-900'}
             ${isTransitioning ? 'pointer-events-none' : ''}`}
         >
-            <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 lg:pr-80">
                 {/* Theme Icon with Animation */}
-                <div className="absolute top-12 right-12 text-4xl p-2">
+                <div className="fixed top-12 right-20 lg:right-80 text-4xl p-2 z-10">
                     <AnimatePresence mode="wait">
                         {isDarkMode ? (
                             <motion.div
@@ -181,7 +181,7 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
                 </div>
 
                 {/* Hero Section */}
-                <div className="max-w-3xl">
+                <div className="max-w-3xl pt-20">
                     <h1 className="text-4xl sm:text-5xl font-bold mb-4">
                         I'm Mohamed,
                         <br />
@@ -195,19 +195,29 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
                         user experiences with a modern touch.
                     </p>
                     <div className="flex flex-wrap gap-4">
-                        <button className="bg-white text-black px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-gray-100 transition-colors">
+                        <button
+                            onClick={() => setIsModalOpen(true)}
+                            className="bg-white text-black px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-gray-100 transition-colors"
+                        >
+                            <FiPhone className="text-lg" />
                             <span>Book a Call</span>
                         </button>
-                        <button className="bg-[#252525] text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-[#2a2a2a] transition-colors">
+                        <Link
+                            to="/contact"
+                            className="bg-[#252525] text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-[#2a2a2a] transition-colors"
+                            onMouseEnter={() => setHover(true)}
+                            onMouseLeave={() => setHover(false)}
+                        >
+                            {hover ? <HiOutlineMailOpen className="text-lg" /> : <HiOutlineMail className="text-lg" />}
                             <span>Get in Touch</span>
-                        </button>
+                        </Link>
                     </div>
                 </div>
 
                 {/* Featured Work Image */}
-                <div className="relative w-full mb-10">
+                <div className="relative w-full mt-20 mb-10">
                     <div
-                        className="mt-10 rounded-xl overflow-hidden transition-transform duration-300 ease-out absolute w-full"
+                        className="rounded-xl overflow-hidden transition-transform duration-300 ease-out"
                         style={{ transform: `translateX(${translateX}px)` }}
                     >
                         <img
@@ -219,13 +229,8 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
                 </div>
 
                 {/* Tech Stack Section */}
-                <div className={`mt-20 transition-all duration-500 ${techSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                    }`}>
-                    <h2 className={`text-3xl font-bold 
-                        ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
-                    >
-                        Tech Stack
-                    </h2>
+                <div className={`mt-20 transition-all duration-500 ${techSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <h2 className="text-3xl font-bold mb-8">Tech Stack</h2>
                     <div className="relative">
                         <div className="flex flex-col gap-12">
                             {techStack.map((tech, index) => {
@@ -248,11 +253,7 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
                                             alt={tech.name}
                                             className="w-16 h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                                         />
-                                        <p className={`text-lg 
-                                            ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}
-                                        >
-                                            {tech.name}
-                                        </p>
+                                        <p className="text-lg text-gray-400">{tech.name}</p>
                                     </div>
                                 );
                             })}
@@ -261,7 +262,7 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
                 </div>
 
                 {/* Spacer to maintain scroll height */}
-                <div className="h-10"></div>
+                <div className="h-20"></div>
 
                 {/* Add the modal */}
                 <BookCallModal
