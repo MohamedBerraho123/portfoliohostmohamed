@@ -142,154 +142,134 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
     };
 
     return (
-        <div className={`flex-1 ml-6 p-10 overflow-y-auto overflow-x-hidden scrollbar-hide relative
-            transition-colors duration-500 ease-in-out
+        <div className={`min-h-screen w-full lg:pr-72 transition-colors duration-500 ease-in-out
             ${isDarkMode ? 'bg-[#191919] text-white' : 'bg-gray-50 text-gray-900'}
             ${isTransitioning ? 'pointer-events-none' : ''}`}
         >
-            {/* Theme Icon with Animation */}
-            <div className="absolute top-12 right-12 text-4xl p-2">
-                <AnimatePresence mode="wait">
-                    {isDarkMode ? (
-                        <motion.div
-                            key="moon"
-                            variants={iconVariants}
-                            initial="initial"
-                            animate="animate"
-                            exit="exit"
-                            whileHover={{ scale: 1.2 }}
-                            whileTap={{ scale: 0.9 }}
-                            className="cursor-pointer"
-                        >
-                            <FaMoon className="text-white w-20 h-20 transition-colors duration-500 ease-in-out" />
-                        </motion.div>
-                    ) : (
-                        <motion.div
-                            key="sun"
-                            variants={iconVariants}
-                            initial="initial"
-                            animate="animate"
-                            exit="exit"
-                            whileHover={{ scale: 1.2 }}
-                            whileTap={{ scale: 0.9 }}
-                            className="cursor-pointer"
-                        >
-                            <FaSun className="text-yellow-500 w-20 h-20 transition-colors duration-500 ease-in-out" />
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </div>
-
-            {/* Hero Section */}
-            <div className="max-w-3xl">
-                <h1 className={`text-5xl font-bold mb-6 transition-colors duration-500 ease-in-out
-                    ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
-                >
-                    I'm Mohamed, turning visions into websites and mobile apps
-                </h1>
-
-                <p className={`text-lg mb-8 transition-colors duration-500 ease-in-out
-                    ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}
-                >
-                    Mohamed is a Junior FullStack Developer who designs and develops innovative websites and mobile apps,
-                    delivering seamless user experiences with a modern touch.
-                </p>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-wrap gap-4 mb-12">
-                    <button
-                        onClick={() => setIsModalOpen(true)}
-                        className={`flex items-center gap-2 px-6 py-3 rounded-lg transition-all duration-500 ease-in-out
-                            ${isDarkMode
-                                ? 'bg-[#2f2f2f] hover:bg-[#3a3a3a] text-white'
-                                : 'bg-gray-200 hover:bg-gray-300 text-gray-900'
-                            }`}
-                    >
-                        <FiPhone className="text-lg animate-jiggle" />
-                        <span>Book a Call</span>
-                    </button>
-
-                    <Link
-                        to="/contact"
-                        className={`flex items-center gap-2 px-6 py-3 rounded-lg transition duration-200
-                            ${isDarkMode
-                                ? 'bg-[#2f2f2f] hover:bg-[#3a3a3a] text-white'
-                                : 'bg-gray-200 hover:bg-gray-300 text-gray-900'
-                            }`}
-                        onMouseEnter={() => setHover(true)}
-                        onMouseLeave={() => setHover(false)}
-                    >
-                        {hover ? <HiOutlineMailOpen className="text-lg" /> : <HiOutlineMail className="text-lg" />}
-                        <span>Get in Touch</span>
-                    </Link>
+            <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+                {/* Theme Icon with Animation */}
+                <div className="absolute top-12 right-12 text-4xl p-2">
+                    <AnimatePresence mode="wait">
+                        {isDarkMode ? (
+                            <motion.div
+                                key="moon"
+                                variants={iconVariants}
+                                initial="initial"
+                                animate="animate"
+                                exit="exit"
+                                whileHover={{ scale: 1.2 }}
+                                whileTap={{ scale: 0.9 }}
+                                className="cursor-pointer"
+                            >
+                                <FaMoon className="text-white w-20 h-20 transition-colors duration-500 ease-in-out" />
+                            </motion.div>
+                        ) : (
+                            <motion.div
+                                key="sun"
+                                variants={iconVariants}
+                                initial="initial"
+                                animate="animate"
+                                exit="exit"
+                                whileHover={{ scale: 1.2 }}
+                                whileTap={{ scale: 0.9 }}
+                                className="cursor-pointer"
+                            >
+                                <FaSun className="text-yellow-500 w-20 h-20 transition-colors duration-500 ease-in-out" />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
-            </div>
 
-            {/* Featured Work Image */}
-            <div className="relative w-full mb-10">
-                <div
-                    className="mt-10 rounded-xl overflow-hidden transition-transform duration-300 ease-out absolute w-full"
-                    style={{ transform: `translateX(${translateX}px)` }}
-                >
-                    <img
-                        src={isDarkMode ? GitProfile : Lightprof}
-                        alt="Featured work - designer workspace"
-                        className="w-full h-auto max-h-screen object-cover"
-                    />
-                </div>
-            </div>
-
-            {/* Tech Stack Section */}
-            <div className={`mt-20 transition-all duration-500 ${techSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}>
-                <h2 className={`text-3xl font-bold 
-                    ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
-                >
-                    Tech Stack
-                </h2>
-                <div className="relative">
-                    <div className="flex flex-col gap-12">
-                        {techStack.map((tech, index) => {
-                            const shouldShow = scrollPosition > 300 + (index * 50) && scrollPosition < 600;
-                            const translateY = shouldShow
-                                ? Math.min((scrollPosition - (300 + index * 50)) * 0.5, 50)
-                                : 100;
-
-                            return (
-                                <div
-                                    key={tech.name}
-                                    className="flex items-center gap-6 transition-all duration-500"
-                                    style={{
-                                        transform: `translateY(${translateY}px)`,
-                                        opacity: shouldShow ? 1 : 0
-                                    }}
-                                >
-                                    <img
-                                        src={tech.image}
-                                        alt={tech.name}
-                                        className="w-16 h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                                    />
-                                    <p className={`text-lg 
-                                        ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}
-                                    >
-                                        {tech.name}
-                                    </p>
-                                </div>
-                            );
-                        })}
+                {/* Hero Section */}
+                <div className="max-w-3xl">
+                    <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+                        I'm Mohamed,
+                        <br />
+                        turning visions into
+                        <br />
+                        websites and mobile apps
+                    </h1>
+                    <p className="text-gray-400 text-lg mb-8">
+                        Mohamed is a Junior FullStack Developer who designs and
+                        develops innovative websites and mobile apps, delivering seamless
+                        user experiences with a modern touch.
+                    </p>
+                    <div className="flex flex-wrap gap-4">
+                        <button className="bg-white text-black px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-gray-100 transition-colors">
+                            <span>Book a Call</span>
+                        </button>
+                        <button className="bg-[#252525] text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-[#2a2a2a] transition-colors">
+                            <span>Get in Touch</span>
+                        </button>
                     </div>
                 </div>
+
+                {/* Featured Work Image */}
+                <div className="relative w-full mb-10">
+                    <div
+                        className="mt-10 rounded-xl overflow-hidden transition-transform duration-300 ease-out absolute w-full"
+                        style={{ transform: `translateX(${translateX}px)` }}
+                    >
+                        <img
+                            src={isDarkMode ? GitProfile : Lightprof}
+                            alt="Featured work - designer workspace"
+                            className="w-full h-auto max-h-screen object-cover"
+                        />
+                    </div>
+                </div>
+
+                {/* Tech Stack Section */}
+                <div className={`mt-20 transition-all duration-500 ${techSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}>
+                    <h2 className={`text-3xl font-bold 
+                        ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
+                    >
+                        Tech Stack
+                    </h2>
+                    <div className="relative">
+                        <div className="flex flex-col gap-12">
+                            {techStack.map((tech, index) => {
+                                const shouldShow = scrollPosition > 300 + (index * 50) && scrollPosition < 600;
+                                const translateY = shouldShow
+                                    ? Math.min((scrollPosition - (300 + index * 50)) * 0.5, 50)
+                                    : 100;
+
+                                return (
+                                    <div
+                                        key={tech.name}
+                                        className="flex items-center gap-6 transition-all duration-500"
+                                        style={{
+                                            transform: `translateY(${translateY}px)`,
+                                            opacity: shouldShow ? 1 : 0
+                                        }}
+                                    >
+                                        <img
+                                            src={tech.image}
+                                            alt={tech.name}
+                                            className="w-16 h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                                        />
+                                        <p className={`text-lg 
+                                            ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}
+                                        >
+                                            {tech.name}
+                                        </p>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Spacer to maintain scroll height */}
+                <div className="h-10"></div>
+
+                {/* Add the modal */}
+                <BookCallModal
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                    isDarkMode={isDarkMode}
+                />
             </div>
-
-            {/* Spacer to maintain scroll height */}
-            <div className="h-10"></div>
-
-            {/* Add the modal */}
-            <BookCallModal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                isDarkMode={isDarkMode}
-            />
         </div>
     );
 };
