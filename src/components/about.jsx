@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCode, FaLanguage, FaGraduationCap, FaBriefcase } from 'react-icons/fa';
-import { SiAdobephotoshop, SiAdobeillustrator, SiBlender, SiFigma, SiHtml5, SiCss3, SiJavascript, SiPhp, SiPython, SiC, SiReact, SiSwift } from 'react-icons/si';
+import { SiAdobephotoshop, SiWordpress, SiAdobeillustrator, SiBlender, SiFigma, SiHtml5, SiCss3, SiJavascript, SiPhp, SiPython, SiC, SiReact, SiSwift } from 'react-icons/si';
 
 const About = ({ isDarkMode, isTransitioning }) => {
     const skills = [
         { name: 'Adobe Photoshop', icon: <SiAdobephotoshop /> },
+        { name: 'Wordpress', icon: <SiWordpress /> },
         { name: 'Adobe Illustrator', icon: <SiAdobeillustrator /> },
         { name: 'Blender', icon: <SiBlender /> },
         { name: 'Figma', icon: <SiFigma /> },
@@ -45,13 +46,27 @@ const About = ({ isDarkMode, isTransitioning }) => {
             title: 'Frontend Development Intern',
             company: 'AgriData Consulting, Agadir',
             period: 'April 2023 – May 2023',
+        },
+        {
+            title: 'Full Stack Developer',
+            company: 'International University of Rabat, Rabat',
+            period: 'September 2024 – March 2025',
+            projects: ['Creating an application for sports booking',],
+            technologies:'React js , .Net core'
+            
+            
         }
     ];
 
     const education = [
         {
-            degree: "Bachelor's in Computer Science Engineering",
-            institution: 'International University of Rabat',
+            degree: "Bachelor's in Digital Development",
+            institution: 'Ibn Tofail University Faculty of Science',
+            period: '2024 - 2025'
+        },
+        {
+            degree: "formation in Digital Development,jobintech",
+            institution: 'International university of rabat',
             period: '2023 - 2024'
         },
         {
@@ -82,12 +97,12 @@ const About = ({ isDarkMode, isTransitioning }) => {
                         ${isDarkMode ? 'bg-[#2f2f2f]' : 'bg-white'}`}
                     >
                         <p className="text-lg leading-relaxed">
-                        Graduated in Professional Bachelor's Degree in Computer Engineering, I
-                        specialize in front-end development, with a focus
-                        on React.js. Passionate about creating modern and efficient user
-                        interfaces, I master the most recent web technologies. I am motivated by the
-                        desire to develop intuitive and efficient solutions, adapted to the
-                        needs of users.
+                            Graduated in Professional Bachelor's Degree in Computer Engineering, I
+                            specialize in front-end development, with a focus
+                            on React.js. Passionate about creating modern and efficient user
+                            interfaces, I master the most recent web technologies. I am motivated by the
+                            desire to develop intuitive and efficient solutions, adapted to the
+                            needs of users.
                         </p>
                     </div>
                 </motion.div>
