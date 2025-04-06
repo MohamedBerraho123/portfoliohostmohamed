@@ -45,8 +45,7 @@ function App() {
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMobileMenu}
-          className="lg:hidden fixed top-4 right-4 z-50 p-2 rounded-lg bg-opacity-80 backdrop-blur-sm
-            ${isDarkMode ? 'bg-[#252525] text-white' : 'bg-white text-gray-900'}"
+          className="lg:hidden fixed top-2 right-2 z-50 p-2 rounded-lg bg-blue-500 text-white bg-opacity-80 backdrop-blur-sm"
         >
           {isMobileMenuOpen ? (
             <HiX className="w-6 h-6" />
