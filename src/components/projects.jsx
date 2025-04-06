@@ -154,7 +154,7 @@ const Projects = ({ isDarkMode, isTransitioning }) => {
         <div className={`min-h-screen w-full lg:pr-72 transition-colors duration-500 ease-in-out
             ${isDarkMode ? 'bg-[#191919] text-white' : 'bg-gray-50 text-gray-900'}
             ${isTransitioning ? 'pointer-events-none' : ''}`}
-        >FFmpeg
+        >
             <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
