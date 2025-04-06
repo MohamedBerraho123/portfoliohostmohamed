@@ -27,7 +27,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, isTransitioning, isMobileMenuOpen,
     >
       {/* Logo */}
       <div className="p-4 mb-8">
-        <h1 className="text-xl font-bold text-white">rtfolio</h1>
+        <h1 className="text-xl font-bold text-white">portfolio</h1>
       </div>
 
       {/* Main Navigation */}
