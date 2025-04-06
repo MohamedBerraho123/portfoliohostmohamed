@@ -4,6 +4,7 @@ import {
   FaProjectDiagram,
   FaUser,
   FaEnvelope,
+  FaGithub, FaLinkedin, FaInstagram
 } from 'react-icons/fa';
 import { MdOutlineDarkMode } from 'react-icons/md';
 import { Link, useLocation } from 'react-router-dom';
@@ -79,6 +80,35 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, isTransitioning, isMobileMenuOpen,
           </li>
         </ul>
       </nav>
+      <div className="flex justify-center space-x-6 ml-30">
+                        <a
+                            href="https://github.com/MohamedBerraho123"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`text-2xl transition-colors duration-200
+                                ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
+                        >
+                            <FaGithub />
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/mohamed-berraho-666213240/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`text-2xl transition-colors duration-200
+                                ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
+                        >
+                            <FaLinkedin />
+                        </a>
+                        <a
+                            href="https://www.instagram.com/simo_dge/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`text-2xl transition-colors duration-200
+                                ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
+                        >
+                            <FaInstagram />
+                        </a>
+                    </div>      
 
       {/* Dark Mode Toggle */}
       <div className="p-4 border-t border-[#252525]">
@@ -91,6 +121,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, isTransitioning, isMobileMenuOpen,
           </span>
         </button>
       </div>
+      
     </div>
   );
 };
