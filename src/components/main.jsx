@@ -147,40 +147,7 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
             ${isTransitioning ? 'pointer-events-none' : ''}`}
         >
             <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 lg:pr-80">
-                {/* Theme Icon with Animation */}
-                <div className="fixed top-12 right-20 lg:right-80 text-4xl p-2 z-10">
-                    <AnimatePresence mode="wait">
-                        {isDarkMode ? (
-                            <motion.div
-                                key="moon"
-                                variants={iconVariants}
-                                initial="initial"
-                                animate="animate"
-                                exit="exit"
-                                whileHover={{ scale: 1.2 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="cursor-pointer"
-                            >
-                                <FaMoon className="text-white w-20 h-20 transition-colors duration-500 ease-in-out" />
-                            </motion.div>
-                        ) : (
-                            <motion.div
-                                key="sun"
-                                variants={iconVariants}
-                                initial="initial"
-                                animate="animate"
-                                exit="exit"
-                                whileHover={{ scale: 1.2 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="cursor-pointer"
-                            >
-                                <FaSun className="text-yellow-500 w-20 h-20 transition-colors duration-500 ease-in-out" />
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                </div>
-
-                {/* Hero Section */}
+                {/* Theme Icon with Animation */} {/* Hero Section */}
                 <div className="max-w-3xl pt-20">
                     <h1 className="text-4xl sm:text-5xl font-bold mb-4">
                         I'm Mohamed,
