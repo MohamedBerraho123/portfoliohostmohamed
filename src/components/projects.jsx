@@ -8,6 +8,7 @@ import Recipe from "../assets/projects/recipesharing.png"
 import backofficeuir from "../assets/projects/backofficeuir.png"
 import booking from "../assets/projects/booking.jpg"
 import iptv from "../assets/projects/iptv.jpg"
+import catapp from "../assets/projects/catapp.jpg"
 import iptv2 from "../assets/projects/iptv2.jpg"
 import Mansarrealstate from "../assets/projects/Mansarrealstate.jpg"
 import TripsMorocco from "../assets/projects/TripsMorocco.jpg"
@@ -56,14 +57,22 @@ const Projects = ({ isDarkMode, isTransitioning }) => {
         },
         {
             id: 4,
-            name: "Survey",
-            type: "websites",
-            image: Survey,
-            description: "Online survey creation and management system.",
-            technologies: ["Angular", "Firebase", "Bootstrap"]
+            name: "Dogg-App",
+            type: "mobile",
+            image: Doggapp,
+            description: "Pet care and dog walking service app.",
+            technologies: ["React Native", "Firebase", "Redux"]
         },
         {
             id: 5,
+            name: "catapp",
+            type: "mobile",
+            image: catapp,
+            description: "Mobile app for sharing race of cat.",
+            technologies: ["React", "Firebase", "tailwind"]
+        },
+        {
+            id: 6,
             name: "Recipe Sharing app",
             type: "mobile",
             image: Recipe,
@@ -71,69 +80,69 @@ const Projects = ({ isDarkMode, isTransitioning }) => {
             technologies: ["React Native", "Firebase", "Redux"]
         },
         {
-            id: 6,
+            id: 7,
             name: "back-office-uir",
             type: "websites",
             image: backofficeuir,
             description: "Back office management system for university.",
-            technologies: ["Vue.js", "Laravel", "PostgreSQL"]
+            technologies: [".net", "react","bootstrap"]
         },
         {
-            id: 7,
+            id: 8,
             name: "booking",
             type: "websites",
             image: booking,
             description: "Hotel and accommodation booking platform.",
-            technologies: ["React", "Node.js", "MongoDB"]
+            technologies: [".net", "react","bootstrap"]
         },
         {
-            id: 8,
+            id: 9,
             name: "iptv",
             type: "websites",
             image: iptv,
             description: "IPTV streaming service platform.",
-            technologies: ["React", "Node.js", "FFmpeg"]
+            technologies: ["Wordpress", "php"]
         },
         {
-            id: 9,
+            id: 10,
             name: "iptv 2",
             type: "websites",
             image: iptv2,
             description: "Enhanced version of IPTV platform.",
-            technologies: ["React", "Node.js", "FFmpeg", "Redis"]
+            technologies: ["Astro","bootstrap"]
         },
         {
-            id: 10,
+            id: 11,
             name: "Mansar-real-state",
             type: "websites",
             image: Mansarrealstate,
             description: "Real estate listing and management platform.",
-            technologies: ["React", "Node.js", "MongoDB"]
+            technologies: ["Astro","bootstrap"]
         },
         {
-            id: 11,
+            id: 12,
             name: "Trips-Morocco",
             type: "websites",
             image: TripsMorocco,
             description: "Travel and tourism platform for Morocco.",
-            technologies: ["React", "Node.js", "MongoDB"]
+            technologies: ["Wordpress", "php"]
         },
         {
-            id: 12,
+            id: 13,
             name: "Fire-iptv",
             type: "websites",
             image: Fireiptv,
             description: "FireTV compatible IPTV application.",
-            technologies: ["React Native", "Node.js", "FFmpeg"]
+            technologies: ["Wordpress", "php"]
         },
         {
-            id: 13,
-            name: "Dogg-App",
-            type: "mobile",
-            image: Doggapp,
-            description: "Pet care and dog walking service app.",
-            technologies: ["React Native", "Firebase", "Redux"]
-        }
+            id: 14,
+            name: "Survey",
+            type: "websites",
+            image: Survey,
+            description: "Online survey creation and management system.",
+            technologies: ["React", "Firebase", "Bootstrap"]
+        },
     ];
 
     // Filter projects based on active filter
@@ -145,7 +154,7 @@ const Projects = ({ isDarkMode, isTransitioning }) => {
         <div className={`min-h-screen w-full lg:pr-72 transition-colors duration-500 ease-in-out
             ${isDarkMode ? 'bg-[#191919] text-white' : 'bg-gray-50 text-gray-900'}
             ${isTransitioning ? 'pointer-events-none' : ''}`}
-        >
+        >FFmpeg
             <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -167,8 +176,8 @@ const Projects = ({ isDarkMode, isTransitioning }) => {
                             key={filter.id}
                             onClick={() => setActiveFilter(filter.id)}
                             className={`px-4 py-2 rounded-lg transition-all duration-200 text-sm sm:text-base ${activeFilter === filter.id
-                                    ? 'bg-[#252525] text-white'
-                                    : 'text-gray-400 hover:text-white'
+                                ? 'bg-[#252525] text-white'
+                                : 'text-gray-400 hover:text-white'
                                 }`}
                         >
                             {filter.label}
