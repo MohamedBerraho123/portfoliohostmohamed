@@ -17,7 +17,7 @@ import LaravelLogo from '../assets/techs/Laravel.png';
 const techStack = [
     { name: 'React', image: reactLogo },
     { name: 'Astro', image: AstroLogo },
-    { name: 'Wordpress', image: WordpressLogo },
+    { name: 'WordPress', image: WordpressLogo },
     { name: 'Python', image: pythonLogo },
     { name: 'C#', image: csharpLogo },
     { name: 'Laravel', image: LaravelLogo },
@@ -65,27 +65,27 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
                     </div>
                 </div>
 
-                {/* Featured Work Image */}
+                {/* Featured Work Image with Frame */}
                 <div className="relative w-full mt-20 mb-10">
-                    <div className="rounded-xl overflow-hidden transition-transform duration-300 ease-out shadow-lg">
+                    <div className={`p-2 border-4 rounded-xl border-gray-300 transition-shadow duration-300 ease-out shadow-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
                         <img
                             src={isDarkMode ? GitProfile : Lightprof}
                             alt="Featured work - designer workspace"
-                            className="w-full h-auto max-h-screen object-cover"
+                            className="w-full h-auto rounded-xl object-cover"
                         />
                     </div>
                 </div>
 
                 {/* Tech Stack Section */}
-                <div className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-6">
                     {techStack.map((tech) => (
-                        <div key={tech.name} className="flex flex-col items-center p-2 border rounded-lg shadow-md transition-transform transform hover:scale-105">
+                        <div key={tech.name} className="flex flex-col items-center p-4 border border-gray-300 rounded-lg shadow-md transition-transform transform hover:scale-105">
                             <img
                                 src={tech.image}
                                 alt={tech.name}
-                                className="w-16 h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                                className="w-20 h-20 object-contain mb-2 transition-transform duration-300 transform hover:scale-110"
                             />
-                            <span className="mt-1 text-sm font-semibold text-gray-800">{tech.name}</span>
+                            <span className="mt-1 text-md font-semibold text-gray-800">{tech.name}</span>
                         </div>
                     ))}
                 </div>
