@@ -12,7 +12,7 @@ import AstroLogo from '../assets/techs/Astro.png';
 import WordpressLogo from '../assets/techs/Wordpress.png';
 import pythonLogo from '../assets/techs/Python.png';
 import csharpLogo from '../assets/techs/Csharp.png';
-import NetcoreLogo from '../assets/techs/Netcore.png';
+import LaravelLogo from '../assets/techs/Laravel.png';
 
 const techStack = [
     { name: 'React', image: reactLogo },
@@ -20,7 +20,7 @@ const techStack = [
     { name: 'Wordpress', image: WordpressLogo },
     { name: 'Python', image: pythonLogo },
     { name: 'C#', image: csharpLogo },
-    { name: 'Netcore', image: NetcoreLogo },
+    { name: 'Laravel', image: LaravelLogo },
 ];
 
 const MainContent = ({ isDarkMode, isTransitioning }) => {
