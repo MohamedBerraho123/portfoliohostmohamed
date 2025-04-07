@@ -1,10 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { FiPhone } from 'react-icons/fi';
 import { HiOutlineMail, HiOutlineMailOpen } from "react-icons/hi";
 import GitProfile from "../assets/gitprof.png";
 import Lightprof from "../assets/lightprof.png";
 import BookCallModal from './BookCallModal';
 import { Link } from "react-router-dom";
+
+// Import all tech images
+import reactLogo from '../assets/techs/React.png';
+import AstroLogo from '../assets/techs/Astro.png';
+import WordpressLogo from '../assets/techs/Wordpress.png';
+import pythonLogo from '../assets/techs/Python.png';
+import csharpLogo from '../assets/techs/Csharp.png';
+import NetcoreLogo from '../assets/techs/Netcore.png';
+
+const techStack = [
+    { name: 'React', image: reactLogo },
+    { name: 'Astro', image: AstroLogo },
+    { name: 'Wordpress', image: WordpressLogo },
+    { name: 'Python', image: pythonLogo },
+    { name: 'C#', image: csharpLogo },
+    { name: 'Netcore', image: NetcoreLogo },
+];
 
 const MainContent = ({ isDarkMode, isTransitioning }) => {
     const [hover, setHover] = useState(false);
@@ -57,6 +74,20 @@ const MainContent = ({ isDarkMode, isTransitioning }) => {
                             className="w-full h-auto max-h-screen object-cover"
                         />
                     </div>
+                </div>
+
+                {/* Tech Stack Section */}
+                <div className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {techStack.map((tech) => (
+                        <div key={tech.name} className="flex flex-col items-center p-2 border rounded-lg shadow-md transition-transform transform hover:scale-105">
+                            <img
+                                src={tech.image}
+                                alt={tech.name}
+                                className="w-16 h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                            />
+                            <span className="mt-1 text-sm font-semibold text-gray-800">{tech.name}</span>
+                        </div>
+                    ))}
                 </div>
 
                 <div className="h-20"></div>
